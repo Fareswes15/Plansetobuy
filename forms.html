@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="icon" type="png" href="../images/img.png">
+    <link rel="stylesheet" href="cssproj.css">
+    <link rel="stylesheet" href="cart.js">
+
+    <style>
+        * {
+            background-color: rgb(103, 184, 215);
+        }
+    </style>
+</head>
+<body style="background-color: #67b8d7;">
+    <a href="index.html"><h2 style="background-color: black; ">PlanesToBuy</h2></a>
+
+    
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="Products.html">Products</a> |
+        <a href="aboutus.html">About Us</a> |
+        <a href="reviewes.html">Reviewes</a> |
+        <a href="contactus.html">Contact Us</a> |
+        <a href="locationandhours.html">Location And Hours</a> |
+        <a href="forms.html">Form</a> |
+    </nav>
+    <hr>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Name</span>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Enter your Email" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <span class="input-group-text" id="basic-addon2">@example.com</span>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-text">Cart</span>
+        <textarea class="form-control" aria-label="With textarea" rows="5" id="cartDetails"></textarea>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-text">Total Price</span>
+        <input type="text" class="form-control" id="totalPrice" readonly>
+    </div>
+
+    <input class="btn btn-primary" type="button" value="Click for Checkout" onclick="checkout()">
+    
+    <script>
+        // Retrieve cart data from localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const totalPrice = localStorage.getItem('totalPrice') || 0;
+
+            document.getElementById('cartDetails').value = cartItems.join('\n');
+            document.getElementById('totalPrice').value = `$${parseFloat(totalPrice).toLocaleString()}`;
+        });
+
+        function checkout() {
+            alert('Proceeding to checkout...');
+            // Here you can add additional checkout logic
+        }
+    </script>
+</body>
+</html>
